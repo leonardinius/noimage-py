@@ -9,7 +9,6 @@ from PIL import Image, ImageDraw, ImageFont
 from flask import Flask
 import flask
 import io
-import tempfile
 import re
 
 def draw(size, bgcolor=None, txtcolor=None, text=None):
@@ -40,7 +39,7 @@ def serve_image(path):
         'mediumrectangle':      '300x250',
         'squarepopup':          '250x250',
         'verticalrectangle':    '240x400',
-        'largerectangle':        '336x280',
+        'largerectangle':       '336x280',
         'rectangle':            '180x150',
         'popunder':             '720x300',
         'fullbanner':           '468x60',
@@ -79,29 +78,31 @@ def serve_image(path):
                  'tiff' : 'image/tiff' 
     }
     
-    spec = re.match(r"(?P<actual_size>[a-zA-Z0-9x]+)(\.(?P<ext>gif|jpeg|png|bmp))?$", path)
+    spec = re.match(r"(?P<actual_size>[a-zA-Z0-9x]+)?(/(?P<bgcolor>[a-zA-Z0-9x]+))?(/(?P<txtcolor>[a-zA-Z0-9x]+))?(\.(?P<ext>gif|jpeg|png|bmp))?$", path)
+    
+    class MyBytesIOHack(io.BytesIO):
+        """
+        https://bugs.launchpad.net/ubuntu/+source/python-imaging/+bug/718852
+        """
+        def __init__(self, *args, **kwargs):
+            io.BytesIO.__init__(self, *args, **kwargs)
+        
+        def fileno(self, *args, **kwargs):
+            raise AttributeError('fileno')
+    
     if spec:
         size_name = spec.group('actual_size')
         actual_size = sizes.get(size_name, size_name)
         image_size = tuple(int(x) for x in actual_size.split('x'))
         ext = spec.group('ext') or 'png'
-        img = draw(image_size, (171, 140, 197), 'white', actual_size)
-        def get_bytes(file):
-            with file as f:
-                img.save(f, ext)
-                f.flush()
-                f.seek(0)
-                return flask.Response(f.read(), mimetype=mimetypes.get(ext, 'image/' + ext))
-        try:
-            return get_bytes(io.BytesIO())
-        except io.UnsupportedOperation, e:
-            """some of the formats do not support save operation into memory stream
-            and are expecting file objects with fileno method support
-            """
-            if e.args == ('fileno',):
-                return get_bytes(tempfile.TemporaryFile())
-            raise
-            
+        img = draw(image_size, 
+                   spec.group('bgcolor') or '#AB8CC5', 
+                   spec.group('txtcolor') or 'white', 
+                   actual_size)
+        with MyBytesIOHack() as f:
+            img.save(f, ext)
+            return flask.Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
+
     else:
         return flask.render_template('page404.html'), 404
 
