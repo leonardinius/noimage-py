@@ -1,3 +1,8 @@
+#Eclipse
+.project
+.pydevproject
+.metadata
+
 *.py[co]
 
 # Packages

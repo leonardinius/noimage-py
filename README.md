@@ -1,4 +1,4 @@
 noimage-py
 ==========
 
-DummyImage copycast (playing with snake a little bit)
+[DummyImage](http://dummyimage.com/ "DummyImage") copycast (playing with snake a little bit)
