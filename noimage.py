@@ -47,31 +47,31 @@ def serve_image(path):
         'microbar':             '88x31',
         'button1':              '120x90',
         'button2':              '120x60',
-        'verticalbanner':        '120x240',
+        'verticalbanner':       '120x240',
         'squarebutton':         '125x125',
         'leaderboard':          '728x90',
-        'wideskyscraper':        '60x600',
+        'wideskyscraper':       '60x600',
         'skyscraper':           '120x600',
         'halfpage':             '300x600',
         
         # Screen Resolutions
         'cga':      '320x200',
-        'qvga':        '320x240',
-        'vga':        '640x480',
-        'wvga':        '800x480',
-        'svga':        '800x480',
+        'qvga':     '320x240',
+        'vga':      '640x480',
+        'wvga':     '800x480',
+        'svga':     '800x480',
         'wsvga':    '1024x600',
-        'xga':       '1024x768',
-        'wxga':        '1280x800',
-        'wsxga':     '1440x900',
-        'wuxga':     '1920x1200',
+        'xga':      '1024x768',
+        'wxga':     '1280x800',
+        'wsxga':    '1440x900',
+        'wuxga':    '1920x1200',
         'wqxga':    '2560x1600',
         
         # Video Resolutions
         'ntsc':     '720x480',
         'pal':      '768x576',
         'hd720':    '1280x720',
-        'hd1080':    '1920x1080',
+        'hd1080':   '1920x1080',
     }
     
     mimetypes = {
