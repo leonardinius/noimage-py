@@ -20,7 +20,7 @@ def draw(size, bgcolor=None, txtcolor=None, text=None):
     
     mask = Image.new('RGB', size, bgcolor)
     draw = ImageDraw.Draw(mask)
-    font = ImageFont.truetype("arial.ttf", min(int(height/max(5, len(lines)+1)), int(1.5 * width / (max(len(l) for l in lines)))))
+    font = ImageFont.truetype("arial.ttf", min(int(height / max(5, len(lines) + 1)), int(1.5 * width / (max(len(l) for l in lines)))))
     
     i = -0.5 if len(lines) == 1 else int(-1 * len(lines) / 2) 
     for text_line in lines:
@@ -104,23 +104,23 @@ def serve_image(path):
             text = text.replace('|', '\n')
             image_size = tuple(int(x) for x in actual_size.split('x'))
             ext = spec.group('ext') or 'png'
-            img = draw(image_size, 
-                       spec.group('bgcolor') or '#AB8CC5', 
-                       spec.group('txtcolor') or 'white', 
+            img = draw(image_size,
+                       spec.group('bgcolor') or '#AB8CC5',
+                       spec.group('txtcolor') or 'white',
                        text)
             with MyBytesIOHack() as f:
                 img.save(f, ext)
                 return flask.Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
         except BaseException, e:
-            return flask.render_template('page404.html', page = {}), 404
+            return flask.render_template('page404.html', page={}), 404
     else:
-        return flask.render_template('page404.html', page = {}), 404
+        return flask.render_template('page404.html', page={}), 404
 
 @app.route('/', defaults={'page': 'index'})
 @app.route('/<string:page>.html')
 def view(page):
-    return flask.render_template("%s.html" % page, 
-                                 page = {'active_page' : page})    
+    return flask.render_template("%s.html" % page,
+                                 page={'active_page' : page})    
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0', debug=True)
