@@ -1,33 +1,37 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block container_content %}
+<p>
 
-{% block container_content %}
-  <p>
+	<style type="text/css">
+div#about_images span {
+	display: none;
+}
 
-<style type="text/css">
-    div#about_images span { display:none;}
-    img.contact {
-    	padding: 10px;
-		width: 15%;
-	}
+img.contact {
+	padding: 10px;
+	width: 15%;
+}
 </style>
 <noscript>
-    <style type="text/css">
-        div#about_images span { display:block;}
-    </style>
+	<style type="text/css">
+div#about_images span {
+	display: block;
+}
+</style>
 </noscript>
 
 <div class="container">
-      
-<h1>About me</h1>
-I like to code and I like the feeling of code lines coming out of my fingertips. I try to build the simplest and most usable solutions to make awesome.
-I live and work in Riga, Latvia and spend my days making kick ass things at
-<a href="https://twitter.com/galeoconsulting">@galeoconsulting</a>.
-<br>
 
-      <div id="about_images">
-        <span style="display: inline; ">
-        <a href="https://twitter.com/leonardinius">
-<img class="contact" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+	<h1>About me</h1>
+	I like to code and I like the feeling of code lines coming out of my
+	fingertips. I try to build the simplest and most usable solutions to
+	make awesome. I live and work in Riga, Latvia and spend my days making
+	kick ass things at <a href="https://twitter.com/galeoconsulting">@galeoconsulting</a>.
+	<br>
+
+	<div id="about_images">
+		<span style="display: inline;"> <a
+			href="https://twitter.com/leonardinius"> <img class="contact"
+				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAWelJREFUeNrsfQeYJFd19anYuXt6ctrJm3OWdqXdRTkgyUKIYEkgJJKx
 sDHJ4N+Y8P8Gfza2wQEsggARjRJCSAjlDdIGbY6zOzuzk/N0zpX+e1/NysIWwSAJhX6rVvd0V1dV
 1zt17rn33Xef5DgOyq3cXuwmlYFVbmVglVsZWOVWBlb5KpRbGVjlVgZWuZWBVW7lVgZWuZWBVW5l
@@ -433,8 +437,10 @@ Ovnn9wuqld/UwXhlfPXbLZ6flpu1UlDIiDVVFevRJN52ng7z70+w/it2+ENnv9YSZzsJ18GlyaW/
 esRBmbyAZ4gHn+S+V+JVjtduvI5cSIYvXnV41Y+MVRxxl2y7wG8vH8lGJab38Gkh2vMDzsM+w9iF
 pEn/YIJVaIVWEKxCKwhWoRUEq9AKrSBYhVYQrEIrCFahFVpBsAqtIFiFVhCsQiu0gmAVWkGwCu3/
 sv1bgAEAcsD7EzazpIoAAAAASUVORK5CYII=
-" alt="twitter"></a>
-        <a href="callto:leonids.maslovs"><img class="contact" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+"
+				alt="twitter"></a> <a href="callto:leonids.maslovs"><img
+				class="contact"
+				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAiQZJREFUeNrsvWewZdd1HvidcPO9L+ecQ+eARiMSmSAAEswiRYqSLWlk
 DyVLo1KVp2qqpqY8P6ZmpmyXpZGHliWNcrDEKBIECYCIjdA5d7+cc343p3POfGud15Rs/yO6QVLq
 C7x+991wwt5rf+v79l5rbcPzPNx93H3c7od5twnuPu7Ewy6XSjAMA57859HOTBdwDb4lPy5cApqx
@@ -1052,8 +1058,11 @@ Qfsk/zRV0+I6pAmDhmppyI3/LRmNF6td24mhv8OLb98/+Zdq6FLby3okUgPs05j2+Fn61RNPqpj8
 zLB+CR4FX/2xGJCdxpJHI7HR45j16vAiqTvMXivjU08qn8U7Sn96jD8zftbG9Mywnj2ePjF/dgqe
 PZ4Z1rPHM8N69nhmWM8ezx7PDOvZ45lhPXs8M6xnj2ePJ/v4TwIMAO39qcuP5X/tAAAAAElFTkSu
 QmCC
-" alt="skype"></a>
-        <a href="mailto:leonids.maslovs@galeoconsulting.com"><img class="contact" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+"
+				alt="skype"></a> <a
+			href="mailto:leonids.maslovs@galeoconsulting.com"><img
+				class="contact"
+				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAhfxJREFUeNrsvQeQnOd1JXo759w9eQaDQY4kQASCESQBBkmURFqURIn2
 Kmtt2bLfep+98nr9ZO3altfrlWPZkihZtBVIihYlillMEEiCSEQicpo809Pd0zmHf8+5PZBBCgBp
 l1751Ss0agrAdPcfvu/ec8+Nv8kwDLn8uvz6Rb/Ml5fg8uuyYF1+XRasy6/LgnX5dfl1WbAuvy4L
@@ -1657,8 +1666,10 @@ ft5hcAkN+X40zns9z2XW+h+0+aM/I8EMfkaf+8fAcbkjd+SOfzam8Nwy6dyRO/4BRyT3CnJHTrBy
 R06wckdOsHJH7sgJVu7ICVbuyAlW7sgdOcHKHTnByh05wcoduSMnWLkjJ1i5IydYuSN35AQrd+QE
 K3fkBCt35I6cYOWOnGDljpxg5Y7ckROs3JETrNyRE6zckTtygpU7coKVO3KClTtyR06wcsc/ueP/
 CTAAaKUw8tvxrnUAAAAASUVORK5CYII=
-" alt="mail"></a>
-        <a href="http://lv.linkedin.com/in/leonidsmaslovs"><img class="contact" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANUAAABsCAYAAAD9hfc+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+"
+				alt="mail"></a> <a href="http://lv.linkedin.com/in/leonidsmaslovs"><img
+				class="contact"
+				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANUAAABsCAYAAAD9hfc+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAUgZJREFUeNrsfQd4lcXW9To956T3hEBIo/cmvRcVEQFRsaAoYgG7gIJ6
 7V2xo9cONrxWROlSlar0ToAQ0kmvp59/r8kbjVxQPr3l//7/neeZJ5Nz3jqz915r79kzxxAIBKAX
 vejlX1eMehfoRS+6UulFL7pS6UUvulLpRS960ZVKL3rRlUovetGVSi960YuuVHrRi65UetGLrlR6
@@ -2029,8 +2040,10 @@ Ruef+n/gNEp5qlIxbUvtB3Im6qcrlV708m8oeqBCL3rRlUovetGVSi960ZVKL3rRi65UetGLrlR6
 0YuuVHrRi150pdKLXnSl0otedKXSi170oiuVXvSiK5Ve9KIrlV70oiuVXvSiF12p9KIXXan0ohdd
 qfSiF73oSqUXvehKpRe96EqlF73oRVcqvehFVyq96OV/d/k/AgwAdD64tx0x3XkAAAAASUVORK5C
 YII=
-" alt="linkedin"></a>
-        <a href="https://github.com/leonardinius"><img class="contact" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUsAAAD6CAYAAAAoVmX6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlz
+"
+				alt="linkedin"></a> <a href="https://github.com/leonardinius"><img
+				class="contact"
+				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUsAAAD6CAYAAAAoVmX6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlz
 AAAOwgAADsIBFShKgAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAD/jElE
 QVR4Xux9B7gUVfI9UXKOgqKA5CQ555yTBMGsa85pTatucM27q65rQlFRBARRQEBQcs45PDIiqGQe
 L7+59T+n7r09PcMDE+vi/yffd+l5PT2d+/SpqlNV2bL9/u//tzOQHQcUHv+N4/s1tvHf2O/f1/n7
@@ -3803,13 +3816,14 @@ pPLm+UPLfpg6+YX3V0x+auOK5f/5cvPK6957b83Vn25bda3tj75IopzZT3rx1Rf3wMU9cJb3AEEI
 5NHvInSBX2xM/fuOxIl3bVoy8sUtS4bm3zi7X80N03u2hla0Rcale0s+tmFGr+brZnTr8Pbc/hW3
 LRye8+1FQwpuXTTyGUzdvPud+Kl3fvHexr9/mbWJgrI9JFLcwm2MWs7ybri4uot74OIeuLgHLu6B
 i3vg4h644PbA/wMCFLUQiUfsOgAAAABJRU5ErkJggg==
-" alt="linkedin"></a>
-        </span>
-</div>
+"
+				alt="linkedin"></a>
+		</span>
+	</div>
 
-  </p>
+	</p>
 
-<script>
+	<script>
     (function(){
         $(function(){
             $('#about_images').children().fadeIn('slow');
@@ -3817,4 +3831,4 @@ i3vg4h644PbA/wMCFLUQiUfsOgAAAABJRU5ErkJggg==
     })(jQuery);
 </script>
 
-{% endblock %}
+	{% endblock %}

@@ -32,7 +32,7 @@ def draw(size, bgcolor=None, txtcolor=None, text=None):
 app = flask.Flask(__name__)
 Bootstrap(app)
 app.config['BOOTSTRAP_USE_CDN'] = False
-app.config['BOOTSTRAP_USE_MINIFIED'] = False
+app.config['BOOTSTRAP_USE_MINIFIED'] = True
 
 @app.route("/<path:path>")
 def serve_image(path):

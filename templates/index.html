@@ -1,199 +1,352 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block container_content %}
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
 
-{% block container_content %}
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
+	<h1>About NoImage</h1>
+	<p>
+		This is copycast and ripoff of awesome <a href="dummyimage.com">DummyImage</a>
+		service, developed by <a href="http://www.twitter.com/kingkool68">Russell
+			Heimlich</a>.
+	</p>
+	<p>
+		I liked the idea and nevertheless there is already python port
+		available - <a href="http://ipsumimage.appspot.com">Ipsum Image</a> I
+		decided to re-implement that myself. The decision was not driven by
+		lack of functionality of existing solutions, the ultimate goal was
+		(and still is) to learn and play with Python snake a little bit more.
+		&quot;Learning by doing&quot; way.
+	</p>
 
-        <h1>About NoImage</h1>
-        <p>
-        	This is copycast and ripoff of awesome <a href="dummyimage.com">DummyImage</a> service, 
-        	developed by <a href="http://www.twitter.com/kingkool68">Russell Heimlich</a>.
-        </p>
-        <p>
-        	I liked the idea and nevertheless there is already python port available - 
-        	<a href="http://ipsumimage.appspot.com">Ipsum Image</a>
-        	I decided to re-implement that myself. 
-        	The decision was not driven by lack of functionality of existing solutions, 
-        	the ultimate goal was (and still is) to learn and play with Python snake a little bit 
-        	more. 
-        	&quot;Learning by doing&quot; way.
-        </p>
-        
-        <p>
-        <a href="https://github.com/leonardinius/noimage-py" class="btn btn-primary btn-large">Fork me on GitHub</a>
-        <p>
-        
-      </div>
+	<p>
+		<a href="https://github.com/leonardinius/noimage-py"
+			class="btn btn-primary btn-large">Fork me on GitHub</a>
+	<p>
+</div>
 
-      <!-- Getting Help -->
-      <div class="row">
-        <div class="span12">
-          <h2>Getting help</h2>
-        </div>
-		<div class="span6">
+<!-- Getting Help -->
+<div class="row">
+	<div class="span12">
+		<h2>Getting help</h2>
+	</div>
+	<div class="span6">
 		<p>
-		Found an bug or want to request a new feature? Go to NoImage <a href="https://github.com/leonardinius/noimage-py/issues">issue tracker</a>.
+			Found an bug or want to request a new feature? Go to NoImage <a
+				href="https://github.com/leonardinius/noimage-py/issues">issue
+				tracker</a>.
 		</p>
-		</div>
-		
-		<div class="span6">
-        <p>
-        Have an API usage question? Try to find an answer at <a href="https://github.com/leonardinius/noimage-py/wiki">wiki space</a>.
-        </p>
-        </div>
 	</div>
-	
-	<div class="row">
-        <div class="span12">
-          <h2>Examples</h2>
-        </div>
-    </div>   
-     
-	<div class="row">
-        <div class="span3">
-          <p>
-          	<img src="/100x150"/>
-		  </p>
-		  <a href="/100x150"><code>/100x150</code></a>
-        </div>
 
-        <div class="span3">
-          <p>
-            <img src="/150x150/yellow/black.gif"/>
-		  </p>
-		  <a href="/150x150/yellow/black.gif"><code>/150x150/yellow/black.gif</code></a>
-        </div>
-        
-        <div class="span3">
-          <p>
-            <img src="/150x150.png?t=NoImage|service||:)"/>
-		  </p>
-		  <a href="/150x150.png?t=NoImage|service||:)"><code>/150x150.png?t=NoImage|service||:)</code></a>
-        </div>
-
-        <div class="span3">
-          <p>
-            <img src="/rectangle/yellow/black.png"/>
-		  </p>
-		  <a href="/rectangle/yellow/black.png"><code>/rectangle/yellow/black.png</code></a>
-        </div>
-
-      </div>
-      
-      <div class="row">
-        <div class="span12">
-          <h2>Service API</h2>
-        </div>
-        
-        <div class="span12">
-          <p> 
-			URL format: <code>/size[/bgcolor][/txtcolor][.format][?t=text]</code>
-		  <p>
-		</div>
-
-       <div class="span12"><p>
-        	<ul>
-				<li><code>size</code> is <code>&lt;width&gt;x&lt;height&gt;</code> or one of the predefined size aliases as below
-<p>
-<div class="span3">				    
-<p><pre>
-# Ad Sizes
-'mediumrectangle':      '300x250',
-'squarepopup':          '250x250',
-'verticalrectangle':    '240x400',
-'largerectangle':       '336x280',
-'rectangle':            '180x150',
-'popunder':             '720x300',
-'fullbanner':           '468x60',
-'halfbanner':           '234x60',
-'microbar':             '88x31',
-'button1':              '120x90',
-'button2':              '120x60',
-'verticalbanner':       '120x240',
-'squarebutton':         '125x125',
-'leaderboard':          '728x90',
-'wideskyscraper':       '60x600',
-'skyscraper':           '120x600',
-'halfpage':             '300x600'
-</pre><p></div>
-
-<div class="span3">				    
-<p><pre>
-# Screen Resolutions
-'cga':      '320x200',
-'qvga':     '320x240',
-'vga':      '640x480',
-'wvga':     '800x480',
-'svga':     '800x480',
-'wsvga':    '1024x600',
-'xga':      '1024x768',
-'wxga':     '1280x800',
-'wsxga':    '1440x900',
-'wuxga':    '1920x1200',
-'wqxga':    '2560x1600',
-</pre><p></div>
-
-<div class="span3">				    
-<p><pre>
-# Video Resolutions
-'ntsc':     '720x480',
-'pal':      '768x576',
-'hd720':    '1280x720',
-'hd1080':   '1920x1080'
-</pre><p></div>
-</p>
-	 </li></ul></p></div>
+	<div class="span6">
+		<p>
+			Have an API usage question? Try to find an answer at <a
+				href="https://github.com/leonardinius/noimage-py/wiki">wiki
+				space</a>.
+		</p>
 	</div>
-	
-	<div class="row">
-	  	 <div class="span12">
-			  <p>
-				<ul>
-				<li>
-					<p><code>bgcolor</code> image background color. For detailed documentation refer to <a href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor Module documentation</a>.</p>
-					<p>Samples: <code>black</code>, <code>#AB8CC5</code>, <code>hsl(0,100%,50%)</code>.</p>
-				</li>
-				<ul>
-			  </p>
-		  </p>
-		</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<h2>Examples</h2>
 	</div>
-	
-	<div class="row">
-	  	 <div class="span12">
-			  <p>
-				<ul>
-					<li><p><code>txtcolor</code> foreground text color. For detailed documentation refer to <a href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor Module documentation</a>.</p>
-					<p>Samples: <code>black</code>, <code>#AB8CC5</code>, <code>hsl(0,100%,50%)</code>.</p>
-				</li>
-				<ul>
-			  </p>
-		  </p>
-		</div>
+</div>
+
+<div class="row">
+	<div class="span3">
+		<p>
+			<img src="/100x150" />
+		</p>
+		<a href="/100x150"><code>/100x150</code></a>
 	</div>
-	
-	<div class="row">
-	  	 <div class="span12">
-			  <p>
-				<ul>
-				<li><code>format</code> is one of the <code>black</code>, <code>gif</code>,<code>jpeg</code>,<code>png</code>,<code>bmp</code>.</li>
-				<ul>
-			  </p>
-		  </p>
-		</div>
+
+	<div class="span3">
+		<p>
+			<img src="/150x150/yellow/black.gif" />
+		</p>
+		<a href="/150x150/yellow/black.gif"><code>/150x150/yellow/black.gif</code></a>
 	</div>
-	
-	<div class="row">
-	  	 <div class="span12">
-			  <p>
-				<ul>
-				<li><code>text</code> <a href="https://en.wikipedia.org/wiki/Percent-encoding">url-encoded</a>. Please note: <code>|</code> could be used as new line character.
-				<p>Samples: <code>?t=text</code>, <code>?t=two|line|text</code>, <code>?t=%24%24%24</code>.</p>
-				</li>
-				<ul>
-			  </p>
-		  </p>
-		</div>
+
+	<div class="span3">
+		<p>
+			<img src="/150x150.png?t=NoImage|service||:)" />
+		</p>
+		<a href="/150x150.png?t=NoImage|service||:)"><code>/150x150.png?t=NoImage|service||:)</code></a>
 	</div>
-      
+
+	<div class="span3">
+		<p>
+			<img src="/rectangle/yellow/black.png" />
+		</p>
+		<a href="/rectangle/yellow/black.png"><code>/rectangle/yellow/black.png</code></a>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="span12">
+		<h2>Service API</h2>
+	</div>
+
+	<div class="span12">
+		<p>
+			URL format:
+			<code>/size[/bgcolor][/txtcolor][.format][?t=text]</code>
+		</p>
+		<p></p>
+	</div>
+
+	<div class="span12">
+		<p></p>
+		<ul>
+			<li><code>size</code> is <code>&lt;width&gt;x&lt;height&gt;</code>
+				or one of the predefined size aliases as below
+				<p></p>
+				<div class="span3">
+					<p></p>
+					<table class="table table-hover table-condensed">
+						<thead>
+							<tr>
+								<th colspan="2">Ad Sizes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>mediumrectangle</td>
+								<td>300x250</td>
+							</tr>
+							<tr>
+								<td>squarepopup</td>
+								<td>250x250</td>
+							</tr>
+							<tr>
+								<td>verticalrectangle</td>
+								<td>240x400</td>
+							</tr>
+							<tr>
+								<td>largerectangle</td>
+								<td>336x280</td>
+							</tr>
+							<tr>
+								<td>rectangle</td>
+								<td>180x150</td>
+							</tr>
+							<tr>
+								<td>popunder</td>
+								<td>720x300</td>
+							</tr>
+							<tr>
+								<td>fullbanner</td>
+								<td>468x60</td>
+							</tr>
+							<tr>
+								<td>halfbanner</td>
+								<td>234x60</td>
+							</tr>
+							<tr>
+								<td>microbar</td>
+								<td>88x31</td>
+							</tr>
+							<tr>
+								<td>button1</td>
+								<td>120x90</td>
+							</tr>
+							<tr>
+								<td>button2</td>
+								<td>120x60</td>
+							</tr>
+							<tr>
+								<td>verticalbanner</td>
+								<td>120x240</td>
+							</tr>
+							<tr>
+								<td>squarebutton</td>
+								<td>125x125</td>
+							</tr>
+							<tr>
+								<td>leaderboard</td>
+								<td>728x90</td>
+							</tr>
+							<tr>
+								<td>wideskyscraper</td>
+								<td>60x600</td>
+							</tr>
+							<tr>
+								<td>skyscraper</td>
+								<td>120x600</td>
+							</tr>
+							<tr>
+								<td>halfpage</td>
+								<td>300x600</td>
+							</tr>
+						</tbody>
+					</table>
+					<p></p>
+				</div>
+
+				<div class="span3">
+					<p></p>
+					<table class="table table-hover table-condensed">
+						<thead>
+							<tr>
+								<th colspan="2">Screen Resolutions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>cga</td>
+								<td>320x200</td>
+							</tr>
+							<tr>
+								<td>qvga</td>
+								<td>320x240</td>
+							</tr>
+							<tr>
+								<td>vga</td>
+								<td>640x480</td>
+							</tr>
+							<tr>
+								<td>wvga</td>
+								<td>800x480</td>
+							</tr>
+							<tr>
+								<td>svga</td>
+								<td>800x480</td>
+							</tr>
+							<tr>
+								<td>wsvga</td>
+								<td>1024x600</td>
+							</tr>
+							<tr>
+								<td>xga</td>
+								<td>1024x768</td>
+							</tr>
+							<tr>
+								<td>wxga</td>
+								<td>1280x800</td>
+							</tr>
+							<tr>
+								<td>wsxga</td>
+								<td>1440x900</td>
+							</tr>
+							<tr>
+								<td>wuxga</td>
+								<td>1920x1200</td>
+							</tr>
+							<tr>
+								<td>wqxga</td>
+								<td>2560x1600</td>
+							</tr>
+						</tbody>
+					</table>
+					<p></p>
+				</div>
+
+				<div class="span3">
+					<p></p>
+					<table class="table table-hover table-condensed">
+						<thead>
+							<tr>
+								<th colspan="2">Video Resolutions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>ntsc</td>
+								<td>720x480</td>
+							</tr>
+							<tr>
+								<td>pal</td>
+								<td>768x576</td>
+							</tr>
+							<tr>
+								<td>hd720</td>
+								<td>1280x720</td>
+							</tr>
+							<tr>
+								<td>hd1080</td>
+								<td>1920x1080</td>
+							</tr>
+						</tbody>
+					</table>
+					<p></p>
+				</div>
+				<p></p></li>
+		</ul>
+		<p></p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<ul>
+			<li>
+				<p>
+					<code>bgcolor</code>
+					image background color. For detailed documentation refer to <a
+						href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor
+						Module documentation</a>.
+				</p>
+				<p>
+					Samples:
+					<code>black</code>
+					,
+					<code>#AB8CC5</code>
+					,
+					<code>hsl(0,100%,50%)</code>
+					.
+				</p>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<ul>
+			<li><p>
+					<code>txtcolor</code>
+					foreground text color. For detailed documentation refer to <a
+						href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor
+						Module documentation</a>.
+				</p>
+				<p>
+					Samples:
+					<code>black</code>
+					,
+					<code>#AB8CC5</code>
+					,
+					<code>hsl(0,100%,50%)</code>
+					.
+				</p></li>
+		</ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<ul>
+			<li><code>format</code> is one of the <code>black</code>, <code>gif</code>,<code>jpeg</code>,<code>png</code>,<code>bmp</code>.</li>
+		</ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<ul>
+			<li><code>text</code> <a
+				href="https://en.wikipedia.org/wiki/Percent-encoding">url-encoded</a>.
+				Please note: <code>|</code> could be used as new line character.
+				<p>
+					Samples:
+					<code>?t=text</code>
+					,
+					<code>?t=two|line|text</code>
+					,
+					<code>?t=%24%24%24</code>
+					.
+				</p></li>
+		</ul>
+	</div>
+</div>
+
 {% endblock %}
