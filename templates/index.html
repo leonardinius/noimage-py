@@ -6,32 +6,194 @@
 
         <h1>About NoImage</h1>
         <p>
-        	This is copycast and ripoff of popular <a href="dummyimage.com">DummyImage</a> service, 
-        	&copy;by <a href="http://www.twitter.com/kingkool68">Russell Heimlich</a>.
+        	This is copycast and ripoff of awesome <a href="dummyimage.com">DummyImage</a> service, 
+        	developed by <a href="http://www.twitter.com/kingkool68">Russell Heimlich</a>.
         </p>
         <p>
         	I liked the idea and nevertheless there is already python port available - 
-        	<a href="http://ipsumimage.appspot.com">Ipsum Image</a>. 
-        	I decided to re-implement that myself. The decision was not driven by lack of 
-        	functionality of existing solutions, the ultimate goal was (and still is) to learn and 
-        	play with Python snake a little bit more. &quot;Learning by doing&quot; way.
+        	<a href="http://ipsumimage.appspot.com">Ipsum Image</a>
+        	I decided to re-implement that myself. 
+        	The decision was not driven by lack of functionality of existing solutions, 
+        	the ultimate goal was (and still is) to learn and play with Python snake a little bit 
+        	more. 
+        	&quot;Learning by doing&quot; way.
         </p>
         
         <p>
-        <a href="https://github.com/leonardinius/noimage-py" class="btn btn-primary btn-large">Fork GitHub Project</a>
-        </p>
+        <a href="https://github.com/leonardinius/noimage-py" class="btn btn-primary btn-large">Fork me on GitHub</a>
+        <p>
+        
       </div>
-      
-            <!-- Example row of columns -->
+
+      <!-- Getting Help -->
       <div class="row">
         <div class="span12">
-          <h2>Examples</h2>
-          <p>
-		  </p>
-          <!--p><a class="btn" href="#">View details »</a></p-->
+          <h2>Getting help</h2>
         </div>
+		<div class="span6">
+		<p>
+		Found an bug or want to request a new feature? Go to NoImage <a href="https://github.com/leonardinius/noimage-py/issues">issue tracker</a>.
+		</p>
+		</div>
+		
+		<div class="span6">
+        <p>
+        Have an API usage question? Try to find an answer at <a href="https://github.com/leonardinius/noimage-py/wiki">wiki space</a>.
+        </p>
+        </div>
+	</div>
+	
+	<div class="row">
+        <div class="span12">
+          <h2>Examples</h2>
+        </div>
+    </div>   
+     
+	<div class="row">
+        <div class="span3">
+          <p>
+          	<img src="/100x150"/>
+		  </p>
+		  <a href="/100x150"><code>/100x150</code></a>
+        </div>
+
+        <div class="span3">
+          <p>
+            <img src="/150x150/yellow/black.gif"/>
+		  </p>
+		  <a href="/150x150/yellow/black.gif"><code>/150x150/yellow/black.gif</code></a>
+        </div>
+        
+        <div class="span3">
+          <p>
+            <img src="/150x150.png?t=NoImage|service||:)"/>
+		  </p>
+		  <a href="/150x150.png?t=NoImage|service||:)"><code>/150x150.png?t=NoImage|service||:)</code></a>
+        </div>
+
+        <div class="span3">
+          <p>
+            <img src="/rectangle/yellow/black.png"/>
+		  </p>
+		  <a href="/rectangle/yellow/black.png"><code>/rectangle/yellow/black.png</code></a>
+        </div>
+
       </div>
       
-{% endblock %}
+      <div class="row">
+        <div class="span12">
+          <h2>Service API</h2>
+        </div>
+        
+        <div class="span12">
+          <p> 
+			URL format: <code>/size[/bgcolor][/txtcolor][.format][?t=text]</code>
+		  <p>
+		</div>
 
-Find a bug or have a feature request? Submit it over on Ipsum Image's GitHub Issue Tracker.
+       <div class="span12"><p>
+        	<ul>
+				<li><code>size</code> is <code>&lt;width&gt;x&lt;height&gt;</code> or one of the predefined size aliases as below
+<p>
+<div class="span3">				    
+<p><pre>
+# Ad Sizes
+'mediumrectangle':      '300x250',
+'squarepopup':          '250x250',
+'verticalrectangle':    '240x400',
+'largerectangle':       '336x280',
+'rectangle':            '180x150',
+'popunder':             '720x300',
+'fullbanner':           '468x60',
+'halfbanner':           '234x60',
+'microbar':             '88x31',
+'button1':              '120x90',
+'button2':              '120x60',
+'verticalbanner':       '120x240',
+'squarebutton':         '125x125',
+'leaderboard':          '728x90',
+'wideskyscraper':       '60x600',
+'skyscraper':           '120x600',
+'halfpage':             '300x600'
+</pre><p></div>
+
+<div class="span3">				    
+<p><pre>
+# Screen Resolutions
+'cga':      '320x200',
+'qvga':     '320x240',
+'vga':      '640x480',
+'wvga':     '800x480',
+'svga':     '800x480',
+'wsvga':    '1024x600',
+'xga':      '1024x768',
+'wxga':     '1280x800',
+'wsxga':    '1440x900',
+'wuxga':    '1920x1200',
+'wqxga':    '2560x1600',
+</pre><p></div>
+
+<div class="span3">				    
+<p><pre>
+# Video Resolutions
+'ntsc':     '720x480',
+'pal':      '768x576',
+'hd720':    '1280x720',
+'hd1080':   '1920x1080'
+</pre><p></div>
+</p>
+	 </li></ul></p></div>
+	</div>
+	
+	<div class="row">
+	  	 <div class="span12">
+			  <p>
+				<ul>
+				<li>
+					<p><code>bgcolor</code> image background color. For detailed documentation refer to <a href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor Module documentation</a>.</p>
+					<p>Samples: <code>black</code>, <code>#AB8CC5</code>, <code>hsl(0,100%,50%)</code>.</p>
+				</li>
+				<ul>
+			  </p>
+		  </p>
+		</div>
+	</div>
+	
+	<div class="row">
+	  	 <div class="span12">
+			  <p>
+				<ul>
+					<li><p><code>txtcolor</code> foreground text color. For detailed documentation refer to <a href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor Module documentation</a>.</p>
+					<p>Samples: <code>black</code>, <code>#AB8CC5</code>, <code>hsl(0,100%,50%)</code>.</p>
+				</li>
+				<ul>
+			  </p>
+		  </p>
+		</div>
+	</div>
+	
+	<div class="row">
+	  	 <div class="span12">
+			  <p>
+				<ul>
+				<li><code>format</code> is one of the <code>black</code>, <code>gif</code>,<code>jpeg</code>,<code>png</code>,<code>bmp</code>.</li>
+				<ul>
+			  </p>
+		  </p>
+		</div>
+	</div>
+	
+	<div class="row">
+	  	 <div class="span12">
+			  <p>
+				<ul>
+				<li><code>text</code> <a href="https://en.wikipedia.org/wiki/Percent-encoding">url-encoded</a>. Please note: <code>|</code> could be used as new line character.
+				<p>Samples: <code>?t=text</code>, <code>?t=two|line|text</code>, <code>?t=%24%24%24</code>.</p>
+				</li>
+				<ul>
+			  </p>
+		  </p>
+		</div>
+	</div>
+      
+{% endblock %}
