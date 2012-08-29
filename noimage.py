@@ -6,8 +6,8 @@ Created on Aug 27, 2012
 '''
 
 from PIL import Image, ImageDraw, ImageFont
-from flask import Flask
 import flask
+from flask.ext.bootstrap import Bootstrap
 import io
 import re
 
@@ -22,18 +22,22 @@ def draw(size, bgcolor=None, txtcolor=None, text=None):
         text = "%sx%s" % size
     lines = text.splitlines()
     
-    i = 1 if len(lines) == 1 else 0 
-    for text_line in lines:
+    i = 0.5 if len(lines) == 1 else 0 
+    for text_line in lines[::-1]:
         tw, th = font.getsize(text_line)
-        draw.text((width / 2 - tw / 2, height / 2 - i * th / 4), text_line, fill=txtcolor, font=font)
-        i += 2
+        draw.text((width / 2 - tw / 2, height / 2 - i * th), text_line, fill=txtcolor, font=font)
+        i += 1
     return mask
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
+Bootstrap(app)
+app.config['BOOTSTRAP_USE_CDN'] = True
 
 @app.route("/<path:path>")
 def serve_image(path):
     # special pre-defined sizes to use in lieu of number dimensions.  taken from dummyimage.com.
+    #
+    # the sizez table definition itself (code) was copied over from https://github.com/mgrdcm/ipsumimage/ project. 
     sizes = {
         # Ad Sizes
         'mediumrectangle':      '300x250',
@@ -91,25 +95,30 @@ def serve_image(path):
             raise AttributeError('fileno')
     
     if spec:
-        size_name = spec.group('actual_size')
-        actual_size = sizes.get(size_name, size_name)
-        image_size = tuple(int(x) for x in actual_size.split('x'))
-        ext = spec.group('ext') or 'png'
-        img = draw(image_size, 
-                   spec.group('bgcolor') or '#AB8CC5', 
-                   spec.group('txtcolor') or 'white', 
-                   actual_size)
-        with MyBytesIOHack() as f:
-            img.save(f, ext)
-            return flask.Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
-
+        try:
+            size_name = spec.group('actual_size')
+            actual_size = sizes.get(size_name, size_name)
+            text = '%s\n%s' % (size_name, actual_size) if size_name in sizes else actual_size
+            text = flask.request.args['t'] if 't' in flask.request.args else text
+            image_size = tuple(int(x) for x in actual_size.split('x'))
+            ext = spec.group('ext') or 'png'
+            img = draw(image_size, 
+                       spec.group('bgcolor') or '#AB8CC5', 
+                       spec.group('txtcolor') or 'white', 
+                       text)
+            with MyBytesIOHack() as f:
+                img.save(f, ext)
+                return flask.Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
+        except BaseException, e:
+            return flask.render_template('page404.html', page = {}), 404
     else:
-        return flask.render_template('page404.html'), 404
+        return flask.render_template('page404.html', page = {}), 404
 
-@app.route("/")
-@app.route("/index.html")
-def index():
-    return flask.render_template("index.html")    
+@app.route('/', defaults={'page': 'index'})
+@app.route('/<string:page>.html')
+def view(page):
+    return flask.render_template("%s.html" % page, 
+                                 page = {'active_page' : page})    
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
