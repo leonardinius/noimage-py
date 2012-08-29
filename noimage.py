@@ -9,6 +9,7 @@ from PIL import Image, ImageDraw, ImageFont
 from flask.ext.bootstrap import Bootstrap
 import flask
 import io
+import os
 import re
 
 def draw(size, bgcolor=None, txtcolor=None, text=None):
@@ -20,7 +21,7 @@ def draw(size, bgcolor=None, txtcolor=None, text=None):
     
     mask = Image.new('RGB', size, bgcolor)
     draw = ImageDraw.Draw(mask)
-    font = ImageFont.truetype("arial.ttf", min(int(height / max(5, len(lines) + 1)), int(1.5 * width / (max(len(l) for l in lines)))))
+    font = ImageFont.truetype(os.getenv("NOIMAGEYET_TTF", "Arial.ttf"), min(int(height / max(5, len(lines) + 1)), int(1.5 * width / (max(len(l) for l in lines)))))
     
     i = -0.5 if len(lines) == 1 else int(-1 * len(lines) / 2) 
     for text_line in lines:
