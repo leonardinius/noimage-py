@@ -1,33 +1,25 @@
 {% extends "base.html" %} {% block container_content %}
-<p>
-
-	<style type="text/css">
-div#about_images span {
-	display: none;
-}
-
+<style type="text/css">
 img.contact {
 	padding: 10px;
 	width: 15%;
 }
-</style>
-<noscript>
-	<style type="text/css">
+
 div#about_images span {
 	display: block;
 }
 </style>
-</noscript>
 
 <div class="container">
-
 	<h1>About me</h1>
-	I like to code and I like the feeling of code lines coming out of my
-	fingertips. I try to build the simplest and most usable solutions to
-	make awesome. I live and work in Riga, Latvia and spend my days making
-	kick ass things at <a href="https://twitter.com/galeoconsulting">@galeoconsulting</a>.
-	<br>
 
+	<p>
+		I like to code and I like the feeling of code lines coming out of my
+		fingertips. I try to build the simplest and most usable solutions to
+		make awesome. I live and work in Riga, Latvia and spend my days making
+		kick ass things at <a href="https://twitter.com/galeoconsulting">@galeoconsulting</a>.
+	</p>
+	
 	<div id="about_images">
 		<span style="display: inline;"> <a
 			href="https://twitter.com/leonardinius"> <img class="contact"
@@ -3820,15 +3812,5 @@ i3vg4h644PbA/wMCFLUQiUfsOgAAAABJRU5ErkJggg==
 				alt="linkedin"></a>
 		</span>
 	</div>
-
-	</p>
-
-	<script>
-    (function(){
-        $(function(){
-            $('#about_images').children().fadeIn('slow');
-        });
-    })(jQuery);
-</script>
-
-	{% endblock %}
+</div>
+{% endblock %}
