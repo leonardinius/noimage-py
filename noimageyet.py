@@ -25,6 +25,7 @@ app = flask.Flask(__name__)
 Bootstrap(app)
 app.config['BOOTSTRAP_USE_CDN'] = cfg.get('BOOTSTRAP_USE_CDN', True)
 app.config['BOOTSTRAP_USE_MINIFIED'] = cfg.get('BOOTSTRAP_USE_MINIFIED', True)
+app.config['BOOTSTRAP_GOOGLE_ANALYTICS_ACCOUNT'] = cfg.get('BOOTSTRAP_GOOGLE_ANALYTICS_ACCOUNT', None)
 
 def draw(size, bgcolor=None, txtcolor=None, text=None):
     width, height = size
