@@ -5,7 +5,6 @@
 ## TODO ##
 
 (candidates for github issues)
-* svc improvement: statisticsd
 * improved README
 * installation guide
 * deployment article (blog)
