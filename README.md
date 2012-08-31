@@ -5,11 +5,12 @@
 ## TODO ##
 
 (candidates for github issues)
+
 * improved README
 * installation guide
 * deployment article (blog)
-* svc improvement: HTTPS 
-* svc improvement: statistics (~~homepage google analytics~~, service usage)
-* svc improvement: caching (redis/memcache)
-* svc improvement: error processing 
+* ~~SVC improvement: HTTPS~~
+* SVC improvement: statistics (~~homepage google analytics~~, service usage)
+* SVC improvement: caching (redis/memcache)
+* SVC improvement: error processing 
 
