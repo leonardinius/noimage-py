@@ -11,6 +11,7 @@
 * deployment article (blog)
 * ~~SVC improvement: HTTPS~~
 * SVC improvement: statistics (~~homepage google analytics~~, service usage)
+* Profile things
 * SVC improvement: caching (redis/memcache)
 * SVC improvement: error processing 
 
