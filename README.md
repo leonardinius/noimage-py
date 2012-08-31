@@ -4,8 +4,6 @@
 
 ## TODO ##
 
--sa-
-
 (candidates for github issues)
 * svc improvement: statisticsd
 * improved README
