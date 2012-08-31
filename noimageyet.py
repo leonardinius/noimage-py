@@ -7,6 +7,7 @@ Created on Aug 27, 2012
 
 from PIL import Image, ImageDraw, ImageFont
 from flask.ext.bootstrap import Bootstrap
+from jinja2.exceptions import TemplateNotFound
 import flask
 import io
 import json
@@ -131,8 +132,10 @@ def serve_image(path):
 @app.route('/', defaults={'page': 'index'})
 @app.route('/<string:page>.html')
 def view(page):
-    return flask.render_template('%s.html' % page,
-                                 page={'active_page' : page})    
+    try:
+        return flask.render_template('%s.html' % page, page={'active_page' : page})
+    except TemplateNotFound:
+        return flask.render_template('page404.html', page={}), 404
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

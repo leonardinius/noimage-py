@@ -13,8 +13,6 @@
 			<div class="nav-collapse">
 				{% autoescape false %}
 				<ul class="nav">
-					<li {{ 'class="active" ' if page.active_page=='about' |safe}}>
-						<a href="/about.html">About</a></li>
 					<li {{ 'class="active" ' if page.active_page=='contact' |safe}}>
 						<a href="/contact.html">Contact me</a></li>
 				</ul>
