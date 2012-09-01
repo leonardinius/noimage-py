@@ -126,7 +126,7 @@ def serve_image(path):
                 img.save(f, ext)
                 return flask.Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
         except BaseException, e:
-            logging.log(logging.ERROR, 'Error %s', e)
+            app.logger.exception('IMG exception')
             return flask.render_template('page404.html', page={}), 404
     else:
         return flask.render_template('page404.html', page={}), 404
@@ -140,7 +140,6 @@ def view(page):
         return flask.render_template('page404.html', page={}), 404
 
 if not app.debug:
-    import logging
     from logging.handlers import RotatingFileHandler
     file_handler = RotatingFileHandler(cfg.get('LOG_FILE','~/logs/noimageyet/app.log'))
     file_handler.setLevel(logging.WARNING)
