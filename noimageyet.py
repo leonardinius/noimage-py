@@ -125,8 +125,8 @@ def serve_image(path):
             with MyBytesIOHack() as f:
                 img.save(f, ext)
                 return flask.Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
-        except BaseException, e:
-            app.logger.exception('IMG exception')
+        except BaseException:
+            app.logger.exception('Error processing: %s. Request args: %r', path. flask.request.args)
             return flask.render_template('page404.html', page={}), 404
     else:
         return flask.render_template('page404.html', page={}), 404
