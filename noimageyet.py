@@ -13,6 +13,7 @@ import io
 import json
 import os
 import re
+import logging 
 
 def loadConfig(path=os.getcwd()):
     file_name = os.path.join(path, '.config.json')
@@ -125,6 +126,7 @@ def serve_image(path):
                 img.save(f, ext)
                 return flask.Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
         except BaseException, e:
+            logging.log(logging.ERROR, e)
             return flask.render_template('page404.html', page={}), 404
     else:
         return flask.render_template('page404.html', page={}), 404
