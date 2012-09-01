@@ -137,5 +137,12 @@ def view(page):
     except TemplateNotFound:
         return flask.render_template('page404.html', page={}), 404
 
+if not app.debug:
+    import logging
+    from logging.handlers import RotatingFileHandler
+    file_handler = RotatingFileHandler(cfg.get('LOG_FILE','~/logs/noimageyet/app.log'))
+    file_handler.setLevel(logging.WARNING)
+    app.logger.addHandler(file_handler)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
