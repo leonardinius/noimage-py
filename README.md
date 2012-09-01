@@ -6,6 +6,7 @@
 
 (candidates for github issues)
 
+* URL generator
 * improved README
 * installation guide
 * deployment article (blog)
