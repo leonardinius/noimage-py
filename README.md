@@ -13,5 +13,5 @@
 * SVC improvement: statistics (~~homepage google analytics~~, service usage)
 * Profile things
 * SVC improvement: caching (redis/memcache)
-* SVC improvement: error processing 
+* ~~SVC improvement: error processing(logging and showing 404 page) ~~
 
