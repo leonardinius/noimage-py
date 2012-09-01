@@ -141,7 +141,7 @@ def view(page):
 
 if not app.debug:
     from logging.handlers import RotatingFileHandler
-    file_handler = RotatingFileHandler(cfg.get('LOG_FILE','~/logs/noimageyet/app.log'))
+    file_handler = RotatingFileHandler(cfg.get('LOG_FILE','./logs/noimageyet/app.log'))
     file_handler.setLevel(logging.WARNING)
     app.logger.addHandler(file_handler)
 

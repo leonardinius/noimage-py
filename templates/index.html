@@ -2,7 +2,7 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
 
-	<h1 style="display: inline">NoImageYet</h1>
+	<h1>NoImageYet</h1>
 	<p>
 		Placeholder image generator service to fill in void spaces in web-page
 		mock-up. Created by <a href="/contact.html">Leonids Maslovs</a>,
@@ -71,7 +71,70 @@
 		</p>
 		<code><a href="/rectangle/yellow/black.png">/rectangle/yellow/black.png</a></code>
 	</div>
+</div>
 
+<div class="row">
+   <div class="span12">
+		<h2>Image generator</h2>
+	</div>
+
+   <div class="span3">
+   		<form class="form-horizontal">
+		  <legend>Calculator</legend>
+		  
+		  <div class="control-group">
+            <label class="control-label" for="size">size</label>
+            <div class="controls">
+              <input id="size" class="input-medium" type="text" placeholder="size" value="150x150">
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="bgcolor">bgcolor</label>
+            <div class="controls">
+              <input id="bgcolor" class="input-medium" type="text" placeholder="bgcolor" value="#AB8CC5"/>
+            </div>
+          </div>
+		  
+          <div class="control-group">
+            <label class="control-label" for="txtcolor">txtcolor</label>
+            <div class="controls">
+             <input id="txtcolor" class="input-medium" type="text" placeholder="txtcolor" value="#000000"/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="text">text</label>
+            <div class="controls">
+             <input id="text" class="input-medium" type="text" placeholder="text" value=""/>
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="format">format</label>
+            <div class="controls">
+             <select id="format" class="input-medium">
+             	<option value="png" selected="selected">png</option>
+             	<option value="gif">gif</option>
+             	<option value="jpeg">jpeg</option>
+             	<option value="bmp">bmp</option>
+             </select>
+            </div>
+          </div>
+		</form>
+   </div>
+
+	
+   <div class="span9" align="center">
+       <form class="form-horizontal">
+         <legend>
+         <a id="calc_url" href="https://noimageyet.com/150x150/%23AB8CC5/%23000000.png">
+   			https://noimageyet.com/150x150/%23AB8CC5/%23000000.png
+  		</a>
+  		</legend>
+  		<img id="calc_img" src="https://noimageyet.com/150x150/%23AB8CC5/%23000000.png" />
+  	   </form>	
+   </div>
 </div>
 
 <div class="row">
@@ -383,7 +446,7 @@
 <div class="row">
 	<div class="span12">
 		<ul>
-			<li><code>format</code> [optional] is one of the <code>black</code>,
+			<li><code>format</code> [optional] is one of the 
 				<code>gif</code>,<code>jpeg</code>,<code>png</code>,<code>bmp</code>.</li>
 		</ul>
 	</div>
@@ -409,4 +472,53 @@
 	</div>
 </div>
 
+{% endblock %}
+
+{%- block style %}
+  {{super()}}
+  <link href="{{'/static/colorpicker/css/colorpicker.css'|safe}}" rel="stylesheet">
+{%  endblock %}
+
+{%- block bootstrap_js_bottom %}
+  {{super()}}
+    <script src="{{'/static/colorpicker/js/bootstrap-colorpicker.js'|safe}}"></script>
+    <script type="text/javascript">
+  	(function($){
+  	    function updateCalc(size, bgcolor, txtcolor, text, format){
+  	    var url = 'https://noimageyet.com/' 
+  		  	+ encodeURIComponent(size)
+  		  	+ '/'+ encodeURIComponent(bgcolor)
+  		  	+ '/'+ encodeURIComponent(txtcolor)
+  		  	+ '.' + format;
+  		  if($.trim(text) != '') url += '?t=' + encodeURIComponent(text);
+  		  $('#calc_url').attr('href', url).text(url);
+  		  $('#calc_img').attr('src', url);
+  	    }
+  	    
+  		$('#bgcolor').colorpicker().on('changeColor', function(ev){
+  		  var size = $('#size').val();
+  		  var bgcolor = ev.color.toHex();
+  		  var txtcolor = $('#txtcolor').val();
+  		  var text = $('#text').val();
+  		  var format = $('#format').val();
+  		  updateCalc(size, bgcolor, txtcolor, text, format);
+  		});
+  		$('#txtcolor').colorpicker().on('changeColor', function(ev){
+  		  var size = $('#size').val();
+  		  var bgcolor = $('#bgcolor').val();
+  		  var txtcolor = ev.color.toHex();
+  		  var text = $('#text').val();
+  		  var format = $('#format').val();
+  		  updateCalc(size, bgcolor, txtcolor, text, format);
+  		});
+  		$('#size,#text,#format').change(function(){
+  		  var size = $('#size').val();
+  		  var bgcolor = $('#bgcolor').val();
+  		  var txtcolor = $('#txtcolor').val();
+  		  var text = $('#text').val();
+  		  var format = $('#format').val();
+  		  updateCalc(size, bgcolor, txtcolor, text, format);
+  		});
+  	})(jQuery);
+    </script>
 {% endblock %}

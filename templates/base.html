@@ -1,6 +1,6 @@
 {% extends "bootstrap_responsive.html" %}
 
-{% block title %}NoImageYet image service{% endblock %}
+{%- block title %}NoImageYet image service{% endblock %}
 
 {%- block meta %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 {%- endblock %}
 
 
-{% block body_content %}
+{%- block body_content %}
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
@@ -31,13 +31,11 @@
 </div>
 
 <div class="container">
-	{% block container_content %} Empty content {% endblock %}
+	{%- block container_content %} Empty content {% endblock %}
 
 	<hr />
 	<footer>
 		<p>&copy; Leonids Maslovs 2012</p>
 	</footer>
 </div>
-
-
 {% endblock %}
