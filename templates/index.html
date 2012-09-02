@@ -142,11 +142,11 @@
    <div class="span9" align="center">
        <form class="form-horizontal">
          <legend>
-         <a id="calc_url" href="https://noimageyet.com/150x150/%23CCCCCC/%23FFFFFF">
-   			https://noimageyet.com/150x150/%23CCCCCC/%23000000
+         <a id="calc_url" href="{{host}}/150x150/%23CCCCCC/%23FFFFFF">
+   			{{host}}/150x150/%23CCCCCC/%23000000
   		</a>
   		</legend>
-  		<img id="calc_img" src="https://noimageyet.com/150x150/%23CCCCCC/%23FFFFFF" />
+  		<img id="calc_img" src="{{host}}/150x150/%23CCCCCC/%23FFFFFF" />
   	   </form>	
    </div>
 </div>
@@ -159,7 +159,7 @@
 	<div class="span12">
 		<p>
 			URL format:
-			<code>/size[/bgcolor][/txtcolor][.format][?t=text]</code>
+			<code>{{host}}/&lt;size&gt;[/&lt;bgcolor&gt;][/&lt;txtcolor&gt;][.&lt;format&gt;][?t=&lt;text&gt;]</code>
 		</p>
 		<p></p>
 	</div>
@@ -167,7 +167,7 @@
 	<div class="span12">
 		<p></p>
 		<ul>
-			<li><code>size</code> is <code>&lt;width&gt;x&lt;height&gt;</code>
+			<li><code>&lt;size&gt;</code> is <code>&lt;width&gt;x&lt;height&gt;</code>
 				or one of the predefined size aliases as below
 				<p></p>
 				<div class="span3">
@@ -414,7 +414,7 @@
 		<ul>
 			<li>
 				<p>
-					<code>bgcolor</code>
+					<code>&lt;bgcolor&gt;</code>
 					[optional] image background color. For detailed documentation refer
 					to <a
 						href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor
@@ -438,7 +438,7 @@
 	<div class="span12">
 		<ul>
 			<li><p>
-					<code>txtcolor</code>
+					<code>&lt;txtcolor&gt;</code>
 					[optional] foreground text color. For detailed documentation refer
 					to <a
 						href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor
@@ -460,7 +460,7 @@
 <div class="row">
 	<div class="span12">
 		<ul>
-			<li><code>format</code> [optional] is one of the 
+			<li><code>&lt;format&gt;</code> [optional] is one of the 
 				<code>gif</code>,<code>jpeg</code>,<code>png</code>,<code>bmp</code>.</li>
 		</ul>
 	</div>
@@ -469,7 +469,7 @@
 <div class="row">
 	<div class="span12">
 		<ul>
-			<li><code>text</code> [optional] <a
+			<li><code>&lt;text&gt;</code> [optional] <a
 				href="https://en.wikipedia.org/wiki/Percent-encoding">url-encoded</a>
 				image text (NB difference: <code>|</code> could be used as new line
 				character).
@@ -504,7 +504,7 @@
     <script type="text/javascript">
   	(function($){
   	    function updateCalc(size, bgcolor, txtcolor, text, format){
-  	    var url = 'https://noimageyet.com/' 
+  	    var url = '{{host}}/' 
   		  	+ encodeURIComponent(size)
   		  	+ '/'+ encodeURIComponent(bgcolor)
   		  	+ '/'+ encodeURIComponent(txtcolor);

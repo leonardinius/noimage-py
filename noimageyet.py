@@ -146,7 +146,7 @@ def serve_image(path):
 @app.route('/<string:page>.html')
 def view(page):
     try:
-        return render_template('%s.html' % page, page={'active_page': page})
+        return render_template('%s.html' % page, page={'active_page': page}, host=cfg.get('HOST', 'https://noimageyet.com'))
     except TemplateNotFound:
         return render_template('page404.html', page={}), 404
 
