@@ -487,8 +487,8 @@
   	    function updateCalc(size, bgcolor, txtcolor, text, format){
   	    var url = 'https://noimageyet.com/' 
   		  	+ encodeURIComponent(size)
-  		  	+ '/'+ encodeURIComponent(bgcolor)
-  		  	+ '/'+ encodeURIComponent(txtcolor)
+  		  	+ '/'+ encodeURIComponent(bgcolor.toUpperCase())
+  		  	+ '/'+ encodeURIComponent(txtcolor.toUpperCase())
   		  	+ '.' + format;
   		  if($.trim(text) != '') url += '?t=' + encodeURIComponent(text);
   		  $('#calc_url').attr('href', url).text(url);
