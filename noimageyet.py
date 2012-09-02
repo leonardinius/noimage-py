@@ -143,6 +143,10 @@ if not app.debug:
     from logging.handlers import RotatingFileHandler
     file_handler = RotatingFileHandler(cfg.get('LOG_FILE','./logs/noimageyet/app.log'))
     file_handler.setLevel(logging.WARNING)
+    file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s %(levelname)s: %(message)s '
+        '[in %(pathname)s:%(lineno)d]'
+    ))
     app.logger.addHandler(file_handler)
 
 if __name__ == '__main__':
