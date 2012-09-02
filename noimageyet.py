@@ -128,7 +128,7 @@ def serve_image(path):
             image_size = tuple(int(x) for x in actual_size.split('x'))
             ext = spec.group('ext') or 'png'
             img = draw(image_size,
-                       spec.group('bgcolor') or '#AB8CC5',
+                       spec.group('bgcolor') or '#CCCCCC',
                        spec.group('txtcolor') or 'white',
                        text)
             with MyBytesIOHack() as f:
