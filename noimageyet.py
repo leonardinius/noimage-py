@@ -47,7 +47,7 @@ def draw(size, bgcolor=None, txtcolor=None, text=None):
     draw = ImageDraw.Draw(mask)
     font = ImageFont.truetype(cfg.get('NOIMAGEYET_TTF', 'Arial.ttf'), min(int(height / max(5, len(lines) + 1)), int(1.5 * width / (max(len(l) for l in lines)))))
 
-    i = -0.5 if len(lines) == 1 else int(-1 * len(lines) / 2)
+    i = -0.5 if len(lines) == 1 else -1 * len(lines) / 2
     for text_line in lines:
         tw, th = font.getsize(text_line)
         draw.text((width / 2 - tw / 2, height / 2 + i * th),
