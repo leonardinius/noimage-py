@@ -18,6 +18,9 @@ import re
 
 
 def loadConfig(path=os.getcwd()):
+    """
+    loads configuration stored as json object
+    """ 
     file_name = os.path.join(path, '.config.json')
     if not os.path.isfile(file_name):
         return None
