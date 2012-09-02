@@ -127,7 +127,8 @@
             <label class="control-label" for="format">format</label>
             <div class="controls">
              <select id="format" class="input-medium">
-             	<option value="png" selected="selected">png</option>
+                <option value="" selected="selected"></option>
+             	<option value="png">png</option>
              	<option value="gif">gif</option>
              	<option value="jpeg">jpeg</option>
              	<option value="bmp">bmp</option>
@@ -141,11 +142,11 @@
    <div class="span9" align="center">
        <form class="form-horizontal">
          <legend>
-         <a id="calc_url" href="https://noimageyet.com/150x150/%23AB8CC5/%23000000.png">
-   			https://noimageyet.com/150x150/%23AB8CC5/%23000000.png
+         <a id="calc_url" href="https://noimageyet.com/150x150/%23AB8CC5/%23000000">
+   			https://noimageyet.com/150x150/%23AB8CC5/%23000000
   		</a>
   		</legend>
-  		<img id="calc_img" src="https://noimageyet.com/150x150/%23AB8CC5/%23000000.png" />
+  		<img id="calc_img" src="https://noimageyet.com/150x150/%23AB8CC5/%23000000" />
   	   </form>	
    </div>
 </div>
@@ -506,8 +507,8 @@
   	    var url = 'https://noimageyet.com/' 
   		  	+ encodeURIComponent(size)
   		  	+ '/'+ encodeURIComponent( ('' || bgcolor).toUpperCase())
-  		  	+ '/'+ encodeURIComponent( ('' || txtcolor).toUpperCase())
-  		  	+ '.' + format;
+  		  	+ '/'+ encodeURIComponent( ('' || txtcolor).toUpperCase());
+  		  if($.trim(format) != '') url += '.' + format;
   		  if($.trim(text) != '') url += '?t=' + encodeURIComponent(text);
   		  $('#calc_url').attr('href', url).text(url);
   		  $('#calc_img').attr('src', url);
