@@ -6,14 +6,15 @@ Created on Aug 27, 2012
 '''
 
 from PIL import Image, ImageDraw, ImageFont
+from flask import Response, render_template, request
 from flask.ext.bootstrap import Bootstrap
 from jinja2.exceptions import TemplateNotFound
 import flask
 import io
 import json
+import logging
 import os
 import re
-import logging
 
 
 def loadConfig(path=os.getcwd()):
@@ -119,8 +120,7 @@ def serve_image(path):
             actual_size = sizes.get(size_name, size_name)
             text = '%s\n%s' % (
                 size_name, actual_size) if size_name in sizes else actual_size
-            text = flask.request.args[
-                't'] if 't' in flask.request.args else text
+            text = request.args['t'] if 't' in request.args else text
             text = text.replace('|', '\n')
             image_size = tuple(int(x) for x in actual_size.split('x'))
             ext = spec.group('ext') or 'png'
@@ -130,22 +130,22 @@ def serve_image(path):
                        text)
             with MyBytesIOHack() as f:
                 img.save(f, ext)
-                return flask.Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
+                return Response(f.getvalue(), mimetype=mimetypes.get(ext, 'image/' + ext))
         except BaseException:
             app.logger.exception('Error processing: %s. Request args: %r',
-                                 path, flask.request.args)
-            return flask.render_template('page404.html', page={}), 404
+                                 path, request.args)
+            return render_template('page404.html', page={}), 404
     else:
-        return flask.render_template('page404.html', page={}), 404
+        return render_template('page404.html', page={}), 404
 
 
 @app.route('/', defaults={'page': 'index'})
 @app.route('/<string:page>.html')
 def view(page):
     try:
-        return flask.render_template('%s.html' % page, page={'active_page': page})
+        return render_template('%s.html' % page, page={'active_page': page})
     except TemplateNotFound:
-        return flask.render_template('page404.html', page={}), 404
+        return render_template('page404.html', page={}), 404
 
 if not app.debug:
     from logging.handlers import RotatingFileHandler
