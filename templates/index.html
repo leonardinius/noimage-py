@@ -73,7 +73,20 @@
 	</div>
 </div>
 
+<noscript>
 <div class="row">
+   <div class="span12">
+		<h2>Image generator</h2>
+	</div>
+	<div class="span12">
+		<p>
+		Your browser does not support or has switched off JavaScript support.
+		If you come back with JavaScript ON you will see nice Image generator form here. ;)
+		</p>
+	</div>
+</div>
+</noscript>
+<div class="row" id="imagegenerator">
    <div class="span12">
 		<h2>Image generator</h2>
 	</div>
@@ -477,6 +490,11 @@
 {%- block style %}
   {{super()}}
   <link href="{{'/static/colorpicker/css/colorpicker.css'|safe}}" rel="stylesheet">
+    <noscript>
+      <style type="text/css">
+        div#imagegenerator { display:none;}
+      </style>
+    </noscript>
 {%  endblock %}
 
 {%- block bootstrap_js_bottom %}
@@ -487,8 +505,8 @@
   	    function updateCalc(size, bgcolor, txtcolor, text, format){
   	    var url = 'https://noimageyet.com/' 
   		  	+ encodeURIComponent(size)
-  		  	+ '/'+ encodeURIComponent(bgcolor.toUpperCase())
-  		  	+ '/'+ encodeURIComponent(txtcolor.toUpperCase())
+  		  	+ '/'+ encodeURIComponent( ('' || bgcolor).toUpperCase())
+  		  	+ '/'+ encodeURIComponent( ('' || txtcolor).toUpperCase())
   		  	+ '.' + format;
   		  if($.trim(text) != '') url += '?t=' + encodeURIComponent(text);
   		  $('#calc_url').attr('href', url).text(url);
