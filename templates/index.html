@@ -105,7 +105,7 @@
           <div class="control-group">
             <label class="control-label" for="bgcolor">bgcolor</label>
             <div class="controls">
-              <input id="bgcolor" class="input-medium" type="text" placeholder="bgcolor" value="#CCCCCC"/>
+              <input id="bgcolor" class="input-medium" type="text" placeholder="bgcolor" value="#AB8CC5"/>
             </div>
           </div>
 		  
@@ -142,11 +142,11 @@
    <div class="span9" align="center">
        <form class="form-horizontal">
          <legend>
-         <a id="calc_url" href="{{host}}/150x150/%23CCCCCC/%23FFFFFF">
-   			{{host}}/150x150/%23CCCCCC/%23000000
+         <a id="calc_url" href="{{host}}/150x150/AB8CC5/FFFFFF">
+   			{{host}}/150x150/AB8CC5/000000
   		</a>
   		</legend>
-  		<img id="calc_img" src="{{host}}/150x150/%23CCCCCC/%23FFFFFF" />
+  		<img id="calc_img" src="{{host}}/150x150/AB8CC5/FFFFFF" />
   	   </form>	
    </div>
 </div>
@@ -415,16 +415,18 @@
 			<li>
 				<p>
 					<code>&lt;bgcolor&gt;</code>
-					[optional] image background color. For detailed documentation refer
-					to <a
-						href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor
-						Module documentation</a>.
+					[optional] image background color. Supported formats are as follows:
+					<ul>
+					<li>Hexadecimal color specifiers, given as &quot;rgb&quot; or &quot;rrggbb&quot;. For example, <code>ff0000</code> specifies pure red.</li>
+					<li>RGB functions, given as <code>rgb(red, green, blue)</code> where the colour values are integers in the range 0 to 255. For example, <code>rgb(255,0,0)</code>.</li>
+					<li>Common HTML colour names, more than 140 standard colour names are supported. Colour names are case insensitive. For example, <code>red</code> and <code>Red</code> both specify pure red.</li>
+					</ul>
 				</p>
 				<p>
 					Samples:
 					<code>black</code>
 					,
-					<code>#CCCCCC</code>
+					<code>AB8CC5</code>
 					,
 					<code>hsl(0,100%,50%)</code>
 					.
@@ -439,16 +441,18 @@
 		<ul>
 			<li><p>
 					<code>&lt;txtcolor&gt;</code>
-					[optional] foreground text color. For detailed documentation refer
-					to <a
-						href="http://www.pythonware.com/library/pil/handbook/imagecolor.htm">ImageColor
-						Module documentation</a>.
+					[optional] foreground text color. Supported formats are as follows:
+					<ul>
+					<li>Hexadecimal color specifiers, given as &quot;rgb&quot; or &quot;rrggbb&quot;. For example, <code>ff0000</code> specifies pure red.</li>
+					<li>RGB functions, given as <code>rgb(red, green, blue)</code> where the colour values are integers in the range 0 to 255. For example, <code>rgb(255,0,0)</code>.</li>
+					<li>Common HTML colour names, more than 140 standard colour names are supported. Colour names are case insensitive. For example, <code>red</code> and <code>Red</code> both specify pure red.</li>
+					</ul>
 				</p>
 				<p>
 					Samples:
 					<code>black</code>
 					,
-					<code>#CCCCCC</code>
+					<code>AB8CC5</code>
 					,
 					<code>hsl(0,100%,50%)</code>
 					.
@@ -516,24 +520,24 @@
   	    
   		$('#bgcolor').colorpicker().on('changeColor', function(ev){
   		  var size = $('#size').val();
-  		  var bgcolor = ev.color.toHex();
-  		  var txtcolor = $('#txtcolor').val();
+  		  var bgcolor = ev.color.toHex().substring(1);
+  		  var txtcolor = $('#txtcolor').val().substring(1);
   		  var text = $('#text').val();
   		  var format = $('#format').val();
   		  updateCalc(size, bgcolor, txtcolor, text, format);
   		});
   		$('#txtcolor').colorpicker().on('changeColor', function(ev){
   		  var size = $('#size').val();
-  		  var bgcolor = $('#bgcolor').val();
-  		  var txtcolor = ev.color.toHex();
+  		  var bgcolor = $('#bgcolor').val().substring(1);
+  		  var txtcolor = ev.color.toHex().substring(1);
   		  var text = $('#text').val();
   		  var format = $('#format').val();
   		  updateCalc(size, bgcolor, txtcolor, text, format);
   		});
   		$('#size,#text,#format').change(function(){
   		  var size = $('#size').val();
-  		  var bgcolor = $('#bgcolor').val();
-  		  var txtcolor = $('#txtcolor').val();
+  		  var bgcolor = $('#bgcolor').val().substring(1);
+  		  var txtcolor = $('#txtcolor').val().substring(1);
   		  var text = $('#text').val();
   		  var format = $('#format').val();
   		  updateCalc(size, bgcolor, txtcolor, text, format);

@@ -15,12 +15,13 @@ import json
 import logging
 import os
 import re
+import string
 
 
 def loadConfig(path=os.getcwd()):
     """
     loads configuration stored as json object
-    """ 
+    """
     file_name = os.path.join(path, '.config.json')
     if not os.path.isfile(file_name):
         return None
@@ -127,9 +128,13 @@ def serve_image(path):
             text = text.replace('|', '\n')
             image_size = tuple(int(x) for x in actual_size.split('x'))
             ext = spec.group('ext') or 'png'
+
+            def nc(s):
+                return '#' + s if all(c in string.hexdigits for c in s) else s
+            
             img = draw(image_size,
-                       spec.group('bgcolor') or '#CCCCCC',
-                       spec.group('txtcolor') or 'white',
+                       nc(spec.group('bgcolor') or '#AB8CC5'),
+                       nc(spec.group('txtcolor') or 'white'),
                        text)
             with MyBytesIOHack() as f:
                 img.save(f, ext)
