@@ -1,6 +1,7 @@
 ## noimage-py ##
-
-[DummyImage](http://dummyimage.com/ "DummyImage") copycast (playing with snake a little bit)
+[NoImageYet](https://noimageyet.com "NoImageYet") service 
+is inspired by awesome
+[DummyImage](http://dummyimage.com/ "DummyImage").
 
 ## TODO ##
 
