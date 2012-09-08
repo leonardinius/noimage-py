@@ -17,3 +17,4 @@ is inspired by awesome
 * SVC improvement: caching (redis/memcache #2)
 * ~~SVC improvement: error processing(logging and showing 404 page)~~
 
+Sat Sep 8 22:11:59 FLEDT 2012
