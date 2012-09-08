@@ -24,7 +24,7 @@ def loadConfig(path=os.getcwd()):
     """
     file_name = os.path.join(path, '.config.json')
     if not os.path.isfile(file_name):
-        return None
+        return dict()
     return json.load(open(file_name))
 
 
@@ -158,7 +158,7 @@ def view(page):
 if not app.debug:
     from logging.handlers import RotatingFileHandler
     file_handler = RotatingFileHandler(
-        cfg.get('LOG_FILE', './logs/noimageyet/app.log'))
+        cfg.get('LOG_FILE', '.app.log'))
     file_handler.setLevel(logging.WARNING)
     file_handler.setFormatter(logging.Formatter(
         '%(asctime)s %(levelname)s: %(message)s '
