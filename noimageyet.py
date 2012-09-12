@@ -122,6 +122,8 @@ def serve_image(path):
         try:
             size_name = spec.group('actual_size')
             actual_size = sizes.get(size_name, size_name)
+            if actual_size.isdigit():
+                actual_size = '{0!s}x{0!s}'.format(actual_size)
             text = '%s\n%s' % (
                 size_name, actual_size) if size_name in sizes else actual_size
             text = request.args['t'] if 't' in request.args else text
