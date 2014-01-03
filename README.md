@@ -19,3 +19,7 @@ is inspired by awesome
 
 Sat Sep 8 22:11:59 FLEDT 2012
 Sat Sep 8 22:36:47 FLEDT 2012
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/leonardinius/noimage-py/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
